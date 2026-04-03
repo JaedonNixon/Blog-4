@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We Were Promised a Passwordless Future — Alex Gamble</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-title">Alex Gamble</a>
+      <nav class="site-nav">
+        <span class="nav-label">Cybersecurity &amp; Technology</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post">
+      <div class="container">
+
+        <header class="post-header">
+          <h1 class="post-title">We Were Promised a Passwordless Future. Why Are We Still Memorizing Credentials?</h1>
+          <p class="post-subtitle">Or: How I learned to stop worrying and accept our fragmented authentication reality</p>
+          <div class="post-meta">
+            <span class="post-author">Alex Gamble</span>
+            <time class="post-date" datetime="2026-04-03">April 3, 2026</time>
+          </div>
+        </header>
+
+        <div class="post-content">
+
+          <p>Look, I get it. You remember the hype from a few years ago. Major tech companies stood on shiny stages and triumphantly declared the password dead. The pitch was intoxicating: instead of generating bizarre strings of characters or trusting your entire digital life to a centralized password manager, you'd simply look at your phone, tap a fingerprint reader, and securely log in to any website on earth.</p>
+
+          <p>This invisible, bulletproof standard is called a <strong>passkey</strong>. Backed by Apple, Google, Microsoft, and the FIDO Alliance, passkeys are mathematically immune to phishing, immune to data breaches, and immune to human forgetfulness.</p>
+
+          <p>So, here we are in 2026. Why do you still have to type a 16-character nightmare just to check your electric bill?</p>
+
+          <p>Except here's the uncomfortable truth: replacing a foundational piece of internet infrastructure is incredibly messy. And before you throw away your password manager in a fit of optimistic rage, let me explain why the passwordless utopia is taking so long to arrive—and what you should actually do while we wait in the lobby.</p>
+
+          <hr>
+
+          <h2>The Cryptographic Promise vs. Bureaucratic Reality</h2>
+
+          <p>To understand why the tech industry desperately wants to kill passwords, you have to understand why passkeys are fundamentally brilliant. They run on a standard called <strong>WebAuthn</strong>, leveraging asymmetric public key cryptography.</p>
+
+          <p>When you create a passkey, your device generates a unique pair of mathematical keys. The "public key" gets tossed to the website's server, while the "private key" gets locked inside your device's secure hardware enclave. When you try to log in, the server essentially throws a complex math problem at your phone. Your phone uses the private key to solve it, the server uses the public key to verify it, and boom—you're in.</p>
+
+          <p>Because your private key never actually leaves your physical device, there is absolutely nothing for hackers to steal from the company's servers. Even if a massive corporation suffers a catastrophic breach, the public keys attackers steal are totally useless without your phone in their physical hands.</p>
+
+          <p>On paper? This solves nearly 90 percent of modern cyberattacks. In practice? It's hit a few walls.</p>
+
+          <hr>
+
+          <h2>The Ecosystem Trap (Or: Why Syncing is a Nightmare)</h2>
+
+          <p>The first massive friction point is synchronization. If your passkey lives exclusively in the secure enclave of your smartphone, what happens when you sit down at your laptop?</p>
+
+          <p>Initially, the big tech giants tied passkeys to their own walled-garden cloud ecosystems. Apple synced them via iCloud, Google via Google Password Manager, and Microsoft via Windows Hello. This works flawlessly—<em>if</em> you live entirely within one ecosystem.</p>
+
+          <p>But the real world is messy. What if you own an iPhone but your office forces you to use a Windows workstation? Suddenly, cross-ecosystem authentication involves holding your phone up to your computer screen to scan a QR code via a protocol called Cross-Device Authentication (CDA). It works, but it adds several annoying steps to an experience that was marketed as "frictionless."</p>
+
+          <p>Furthermore, moving passkeys between different third-party password managers has historically been a fraught, lock-in-heavy process. The FIDO Alliance only recently finalized secure credential exchange protocols to let users actually bulk-export passkeys. Until these see widespread adoption, nobody wants to lock their entire digital identity into a single proprietary vault.</p>
+
+          <hr>
+
+          <h2>The Recovery Paradox: The Window is Wide Open</h2>
+
+          <p>Here is the most difficult problem in cybersecurity: keeping hackers out is relatively easy. Letting legitimate users back in after they do something foolish is incredibly hard.</p>
+
+          <p>If your passkeys are locked inside your hardware, what happens if you drop your phone to the bottom of a lake? If you haven't synced your passkeys to a cloud backup, or you lose access to the cloud account itself, you are cryptographically locked out of your own life.</p>
+
+          <p>To prevent their customer support lines from catching fire, websites implement fallback recovery methods. And what are those methods? Usually, they involve sending a "magic link" to your email address or sending a one-time passcode via SMS.</p>
+
+          <p>This creates the <strong>Recovery Paradox</strong>. You can protect your bank account with military-grade, phishing-resistant public key cryptography, but if a hacker can simply SIM-swap your phone number or guess your email password to trigger a reset, your fancy passkey hasn't actually improved your security one bit. We've reinforced the front door with titanium but left the side window wide open.</p>
+
+          <hr>
+
+          <h2>So, What Should You Actually Do?</h2>
+
+          <p>The death of the password won't be an overnight execution; it's going to be a slow, agonizing, multi-year phase-out. Until every service you use drops secondary password-based recovery, you are living in a hybrid era.</p>
+
+          <p>Here is my practical, slightly-paranoid-but-not-helpless advice on how to navigate it:</p>
+
+          <ol>
+            <li>
+              <strong>Adopt Passkeys for High-Value Targets First.</strong> Use passkeys immediately for your email, banking, and primary cloud accounts (Google, Apple, Microsoft). Securing the accounts that act as the foundation of your digital identity gives you the highest immediate return on security.
+            </li>
+            <li>
+              <strong>Keep the Password Manager.</strong> Do not abandon ship yet. You are still going to need it for the hundreds of legacy websites, local government portals, and smaller retailers that will take years to upgrade their dusty infrastructure.
+            </li>
+            <li>
+              <strong>Store Passkeys in Your Manager.</strong> If your chosen password vendor supports it, generate and store your passkeys inside your third-party manager rather than the OS-level vaults. This makes logging in across different operating systems (like a Windows PC and an iPhone) significantly less irritating.
+            </li>
+            <li>
+              <strong>Lock Down Your Email Like Fort Knox.</strong> Because email remains the ultimate skeleton key for account recovery, protect your primary email account with your life. Turn off SMS recovery entirely. Secure it with an authenticator app, or better yet, a physical hardware security key (like a YubiKey).
+            </li>
+          </ol>
+
+          <hr>
+
+          <h2>The Bottom Line</h2>
+
+          <p>Passkeys are not marketing vaporware; they are a genuine cryptographic breakthrough that solves the internet's most persistent security flaw. But technology rarely exists in a vacuum. It has to navigate corporate rivalries, human error, and decades of technical debt.</p>
+
+          <p>The passwordless future is absolutely coming. It's just going to take a little while. Your password manager is still your best friend—just don't treat passkeys like magic until the rest of the internet catches up, okay?</p>
+
+        </div>
+
+        <footer class="post-references">
+          <h2>References</h2>
+          <ol>
+            <li>FIDO Alliance. (2025). <em>How FIDO works: Public key cryptography and authentication.</em> FIDO Alliance Documentation. <a href="https://fidoalliance.org/how-fido-works/" target="_blank" rel="noopener noreferrer">https://fidoalliance.org/how-fido-works/</a></li>
+            <li>Barth, B. (2025, November 12). Navigating the Cross-Device Authentication challenge. <em>Cybersecurity Dive.</em> <a href="https://www.cybersecuritydive.com/news/cross-device-passkey-authentication-fido/" target="_blank" rel="noopener noreferrer">https://www.cybersecuritydive.com/news/cross-device-passkey-authentication-fido/</a></li>
+            <li>National Institute of Standards and Technology. (2024). <em>Digital identity guidelines: Authentication and lifecycle management</em> (NIST Special Publication 800-63B). U.S. Department of Commerce. <a href="https://pages.nist.gov/800-63-4/sp800-63b.html" target="_blank" rel="noopener noreferrer">https://pages.nist.gov/800-63-4/sp800-63b.html</a></li>
+            <li>Whittaker, Z. (2026, January 14). Why password recovery remains the weakest link in the passkey era. <em>TechCrunch.</em> <a href="https://techcrunch.com/2026/01/14/passkey-recovery-paradox-email-fallback/" target="_blank" rel="noopener noreferrer">https://techcrunch.com/2026/01/14/passkey-recovery-paradox-email-fallback/</a></li>
+          </ol>
+        </footer>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Alex Gamble. Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
